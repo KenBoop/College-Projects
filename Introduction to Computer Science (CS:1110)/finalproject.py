@@ -80,42 +80,6 @@ def vegenere_encryption(string, string2):
     answer = answer + letterDict[newLetter]
   return answer.upper()
 
-
-#part 2 boolean logic
-'''
-1.  a->b->c->d->e<->f v b ^ ~a ->a -> a ->b -> a 
-=> a>b->c->d->e -> f -> f -> e v b ^ ~a -> a -> b -> a
-#~
-=> a>b->c->d->e -> f -> f -> e v b ^ (~a) -> a -> b -> a
-#^
-=> a>b->c->d->e -> f -> f -> e v (b ^ (~a)) -> a -> b -> a
-#v
-=> a>b->c->d->e -> f -> f -> (e v (b ^ (~a))) -> a -> b -> a
-=> (a->(b->(c->(d->(e -> (f -> (f -> ((e v (b ^ (~a))) -> (a -> (b -> a))))))))))
-=> (~a v (~b v (~c v (~d v (~e v (~f v (~f v ((~e v ~(b ^ (~a))) v (~a v (~b v a))))))))))
-
-2. a v b ^ c v d ^ e <-> ~y -> t -> p ^ ~c -> b
-=> a v b ^ c v d ^ e -> ~y ^ e -> ~y -> t -> p ^ ~c -> b
-#~
-=> a v b ^ c v d ^ e -> (~y) ^ e -> (~y) -> t -> p ^ (~c) -> b
-#^
-=> a v (b ^ c) v (d ^ e) -> ((~y) ^ e) -> (~y) -> t -> (p ^ (~c)) -> b
-#v 
-=> ((a v (b ^ c)) v (d ^ e)) -> ((~y) ^ e) -> (~y) -> t -> (p ^ (~c)) -> b
-=> (((a v (b ^ c)) v ((d ^ e)) -> (((~y) ^ e) -> ((~y) -> (t -> (p ^ ((~c)) -> b))))))
-=> ~(((a v (b ^ c)) v ((d ^ e)) -> ~(((~y) ^ e) -> (~(~y) -> (~t -> (p ^ (~(~c)) v b))))))
-
-3. a ^ c -> b -> b -> a v b v ~c -> ~c -> ~d
-#~
-=> a ^ c -> b -> b -> a v b v (~c) -> (~c) -> (~d)
-#^
-=> (a ^ c) -> b -> b -> a v b v (~c) -> (~c) -> (~d)
-#v
-=> (a ^ c) -> b -> b -> ((a v b) v (~c)) -> (~c) -> (~d)
-=> ((a ^ c) -> (b -> (b -> (((a v b) v (~c)) -> ((~c) -> (~d))))))
-=> ~((a ^ c) v (~b v (~b v ~(((a v b) v (~c)) v (~(~c) v (~d))))))
-
-'''
 #part 3 artifical intelligence 
 #problem 1
 #having two variables set to None in defined function allows users to have the ability choose either 1 input or 2 inputs 
